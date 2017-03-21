@@ -31,7 +31,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private RadioButton rb_type;
     private RadioButton rb_shop;
     private RadioButton rb_my;
-    private RadioGroup rg;
     private FragmentManager fm;
     private String fragment1Tag = "f1";
     private String fragment2Tag = "f2";
@@ -49,7 +48,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
     private void initView() {
-        rg = (RadioGroup) findViewById(R.id.rg);
         rb_home = (RadioButton) findViewById(R.id.rb_home);
         rb_type = (RadioButton) findViewById(R.id.rb_type);
         rb_shop = (RadioButton) findViewById(R.id.rb_shop);
