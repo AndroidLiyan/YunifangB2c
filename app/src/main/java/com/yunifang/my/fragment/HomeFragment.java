@@ -1,9 +1,13 @@
 package com.yunifang.my.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +18,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
 import com.youth.banner.Banner;
 import com.yunifang.my.R;
+import com.yunifang.my.adp.RHomeAdapter;
 import com.yunifang.my.basic.BaseFragment;
 import com.yunifang.my.common.Constants;
 import com.yunifang.my.common.DeviceManager;
@@ -29,26 +34,28 @@ import java.util.List;
  * Created by lenovo on 2017/3/17.
  */
 
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
     private View view;
     private ImageView net_image;
-    private PullToRefreshScrollView pulltorefresh;
-    private Banner banner;
     private List<HomeData.DataBean.Ad1Bean> ad1;
-    private Handler handler = new Handler(){
+    private RecyclerView recycler;
+    private SwipeRefreshLayout swipeRefresh;
+    private RHomeAdapter rHomeAdapter;
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            switch (msg.what){
+            switch (msg.what) {
                 case 0:
                     HomeData homeData = (HomeData) msg.obj;
-                    ad1 = homeData.getData().getAd1();
-                    mSetView();
+                    rHomeAdapter = new RHomeAdapter(getActivity(), homeData);
+                    recycler.setAdapter(rHomeAdapter);
                     break;
             }
         }
     };
+
 
     @Nullable
     @Override
@@ -81,9 +88,11 @@ public class HomeFragment extends BaseFragment {
 
     private void initView() {
         net_image = (ImageView) view.findViewById(R.id.net_image);
-        pulltorefresh = (PullToRefreshScrollView) view.findViewById(R.id.pulltorefresh);
-        banner = (Banner) view.findViewById(R.id.banner);
-        pulltorefresh.setMode(PullToRefreshBase.Mode.BOTH);
+        recycler = (RecyclerView) view.findViewById(R.id.home_recycle);
+        swipeRefresh = (SwipeRefreshLayout) view.findViewById(R.id.home_swiperefresh);
+        recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
+        swipeRefresh.setColorSchemeColors(Color.RED,Color.GRAY,Color.GREEN);
+        swipeRefresh.setOnRefreshListener(this);
     }
 
     private void initData() {
@@ -102,11 +111,11 @@ public class HomeFragment extends BaseFragment {
 
     }
 
-    private void mSetView() {
-        List<String> list_banner = new ArrayList<>();
-        for (int i = 0; i < ad1.size(); i++) {
-            list_banner.add(ad1.get(i).getImage());
-        }
-        banner.setImages(list_banner).setImageLoader(new GlideImageLoader()).start();
+    @Override
+    public void onRefresh() {
+        initData();
+        rHomeAdapter.notifyDataSetChanged();
+        //隐藏小圆圈
+        swipeRefresh.setRefreshing(false);
     }
 }
