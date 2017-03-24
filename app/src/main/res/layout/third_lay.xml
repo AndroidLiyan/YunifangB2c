@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#f0ffff"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="~~~本周热销~~~"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:scrollbars="none"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/third_recycler"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp">
+            </android.support.v7.widget.RecyclerView>
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg_login"
+                android:id="@+id/imageView"
+                android:layout_toRightOf="@+id/third_recycler"/>
+        </RelativeLayout>
+    </HorizontalScrollView>
+
+
+
+
+</LinearLayout>
