@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 import com.yunifang.my.R;
 import com.yunifang.my.jsonbean.HomeData;
+import com.yunifang.my.utils.ContextUtil;
 import com.yunifang.my.vholder.RSixItemViewHolder;
 
 import java.util.List;
@@ -34,10 +35,16 @@ public class RSixItemAdapter extends RecyclerView.Adapter<RSixItemViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(RSixItemViewHolder holder, int position) {
+    public void onBindViewHolder(RSixItemViewHolder holder, final int position) {
         Glide.with(context).load(defaultGoodsList.get(position).getGoods_img()).into(holder.six_item_image);
         holder.six_item_name.setText(defaultGoodsList.get(position).getGoods_name());
         holder.six_item_price.setText("¥"+defaultGoodsList.get(position).getShop_price());
+        holder.lll_shop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ContextUtil.mIntentParticulars(context,defaultGoodsList.get(position).getId());
+            }
+        });
     }
 
     @Override

@@ -35,8 +35,8 @@ public class OkHttpUtils {
             public void onResponse(Response response) throws IOException {
                 String string = response.body().string();
                 Gson gson = new Gson();
-                T homeData = gson.fromJson(string, tClass);
-                callData.BackData(homeData);
+                T Data = gson.fromJson(string, tClass);
+                callData.BackData(Data);
             }
         });
         return null;

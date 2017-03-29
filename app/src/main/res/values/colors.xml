@@ -7,4 +7,9 @@
     <color name="colorPink">#ffc0cb</color>
     <color name="colorBg">#fff0f5</color>
     <color name="colorWhite">#ffffff</color>
+    <color name="colorWheat">#f5deb3</color>
+    <color name="colorLemon">#fffacd</color>
+    <color name="colorViolet">#ee82ee</color>
+    <color name="YellowGreen">#9acd32</color>
+    <color name="blue">#f0ffff</color>
 </resources>

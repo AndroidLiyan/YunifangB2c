@@ -3,7 +3,6 @@
     package="com.yunifang.my">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -21,7 +20,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".act.WelcomeActivity"></activity>
+        <activity android:name=".act.WelcomeActivity" />
+        <activity android:name=".act.WebViewActivity" />
+        <activity android:name=".act.ParticularsActivity" />
+        <activity android:name=".act.SetActivity"></activity>
     </application>
 
 </manifest>

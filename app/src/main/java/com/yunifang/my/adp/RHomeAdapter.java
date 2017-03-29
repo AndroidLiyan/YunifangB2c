@@ -44,6 +44,7 @@ public class RHomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         RecyclerView.ViewHolder viewHolder = null;
         switch (viewType) {
             case 0:
+                //无限轮播
                 View view = LayoutInflater.from(context).inflate(R.layout.frist_lay, parent, false);
                 viewHolder = new RFristViewHolder(view);
                 break;
@@ -78,7 +79,7 @@ public class RHomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             case 0:
                 List<HomeData.DataBean.Ad1Bean> ad1 = homeData.getData().getAd1();
                 RFristViewHolder rFristViewHolder = (RFristViewHolder) holder;
-                rFristViewHolder.mSetView(ad1);
+                rFristViewHolder.mSetView(ad1,context);
                 break;
             case 1:
                 List<HomeData.DataBean.Ad5Bean> ad5 = homeData.getData().getAd5();

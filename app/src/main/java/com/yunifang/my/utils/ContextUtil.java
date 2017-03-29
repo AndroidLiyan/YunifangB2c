@@ -2,9 +2,12 @@ package com.yunifang.my.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.yunifang.my.act.ParticularsActivity;
+import com.yunifang.my.act.WebViewActivity;
 import com.yunifang.my.widget.CrashApplication;
 
 import java.util.ArrayList;
@@ -55,4 +58,14 @@ public class ContextUtil {
         }
         return true;
     }*/
+    public static void mIntent(Context context, String url){
+        Intent intent = new Intent(context, WebViewActivity.class);
+        intent.putExtra("url", url);
+        context.startActivity(intent);
+    }
+    public static void mIntentParticulars(Context context, String id){
+        Intent intent = new Intent(context, ParticularsActivity.class);
+        intent.putExtra("id", id);
+        context.startActivity(intent);
+    }
 }

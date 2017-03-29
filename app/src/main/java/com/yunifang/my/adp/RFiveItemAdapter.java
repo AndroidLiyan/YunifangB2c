@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 import com.yunifang.my.R;
 import com.yunifang.my.jsonbean.HomeData;
+import com.yunifang.my.utils.ContextUtil;
 import com.yunifang.my.vholder.ThridRcyclerViewHolder;
 
 import java.util.List;
@@ -34,14 +35,20 @@ public class RFiveItemAdapter extends RecyclerView.Adapter<ThridRcyclerViewHolde
     }
 
     @Override
-    public void onBindViewHolder(ThridRcyclerViewHolder holder, int position) {
+    public void onBindViewHolder(ThridRcyclerViewHolder holder, final int position) {
         Glide.with(context).load(goodsList.get(position).getGoods_img()).into(holder.third_recycler_image);
         holder.third_text_name.setText(goodsList.get(position).getGoods_name());
         holder.third_text_price.setText("¥"+goodsList.get(position).getShop_price()+" ");
+        holder.ll_shop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ContextUtil.mIntentParticulars(context,goodsList.get(position).getId());
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return goodsList.size();
+        return 6;
     }
 }

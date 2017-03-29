@@ -1,79 +1,85 @@
 package com.yunifang.my.jsonbean;
 
 
-public class ProductInfo extends BaseInfo
-{
-	private String imageUrl;
-	private String desc;
-	private double price;
-	private int count;
-	private int position;// 绝对位置，只在ListView构造的购物车中，在删除时有效
+public class ProductInfo extends BaseInfo {
+    private String imageUrl;
+    private String name;
+    private String sid;
+    private double price;
+    private int position;// 绝对位置，只在ListView构造的购物车中，在删除时有效
+    private int count;
+    private boolean check;
 
-	public ProductInfo()
-	{
-		super();
-	}
+    public int getCount() {
+        return count;
+    }
 
-	public ProductInfo(String id, String name, String imageUrl, String desc, double price, int count)
-	{
+    public void setCount(int count) {
+        this.count = count;
+    }
 
-		super.Id = id;
-		super.name = name;
-		this.imageUrl = imageUrl;
-		this.desc = desc;
-		this.price = price;
-		this.count = count;
-	
-	}
+    public ProductInfo() {
+        super();
+    }
 
-	public String getImageUrl()
-	{
-		return imageUrl;
-	}
+    public boolean isCheck() {
+        return check;
+    }
 
-	public void setImageUrl(String imageUrl)
-	{
-		this.imageUrl = imageUrl;
-	}
+    public void setCheck(boolean check) {
+        this.check = check;
+    }
 
-	public String getDesc()
-	{
-		return desc;
-	}
+    public ProductInfo(String name, String imageUrl, String sid, double price, int count, boolean check) {
 
-	public void setDesc(String desc)
-	{
-		this.desc = desc;
-	}
+        this.imageUrl = imageUrl;
+        this.name = name;
+        this.price = price;
+        this.sid = sid;
+        this.count = count;
+        this.check = check;
 
-	public int getCount()
-	{
-		return count;
-	}
+    }
 
-	public void setCount(int count)
-	{
-		this.count = count;
-	}
+    public String getImageUrl() {
+        return imageUrl;
+    }
 
-	public double getPrice()
-	{
-		return price;
-	}
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 
-	public void setPrice(double price)
-	{
-		this.price = price;
-	}
+    @Override
+    public String getName() {
+        return name;
+    }
 
-	public int getPosition()
-	{
-		return position;
-	}
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setPosition(int position)
-	{
-		this.position = position;
-	}
+    public String getSid() {
+        return sid;
+    }
 
+    public void setSid(String sid) {
+        this.sid = sid;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
 }

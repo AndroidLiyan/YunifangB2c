@@ -85,7 +85,7 @@ public class HomeFragment extends BaseFragment implements SwipeRefreshLayout.OnR
         }
         initData();
     }
-
+    //
     private void initView() {
         net_image = (ImageView) view.findViewById(R.id.net_image);
         recycler = (RecyclerView) view.findViewById(R.id.home_recycle);

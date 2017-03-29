@@ -49,6 +49,9 @@ public final class Constants {
      */
     public static final String HOME_URL = "http://m.yunifang.com/yunifang/mobile/home?random=84831&encode=9dd34239798e8cb22bf99a75d1882447";
 
+    public static final String TYPE_URL = "http://m.yunifang.com/yunifang/mobile/category/list?random=96333&encode=bf3386e14fe5bb0bcef234baebca2414";
+
+    public static final String PARTICUlLARS = "http://m.yunifang.com/yunifang/mobile/goods/detail?random=46389&encode=70ed2ed2facd7a812ef46717b37148d6&id=";
 
     //调试控制台日志
     public static final boolean DEBUG = true;
