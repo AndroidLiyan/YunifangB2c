@@ -3,6 +3,7 @@ package com.yunifang.my.fragment;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -50,7 +51,7 @@ public class HomeFragment extends BaseFragment implements SwipeRefreshLayout.OnR
                 case 0:
                     HomeData homeData = (HomeData) msg.obj;
                     rHomeAdapter = new RHomeAdapter(getActivity(), homeData);
-                    recycler.setAdapter(rHomeAdapter);
+                    Looper.prepare();
                     break;
             }
         }
